@@ -15,7 +15,6 @@ namespace TechExam1.Services
         public async Task<int> GetNumberOfUniqueCharacterFromString(string input)
         {
             _getUnique.characters = _stringHelper.ConvertToListString(input);
-           // int count = _getUnique.RemoveDuplicateCharacters().ToList().Count();
             int count = _getUnique.GetNumberOfUniqueCharacter().ToList().Count();  
 
             return count;
