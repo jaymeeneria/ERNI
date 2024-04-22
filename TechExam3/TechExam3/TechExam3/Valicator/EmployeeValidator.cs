@@ -1,9 +1,10 @@
 ﻿using System.Text.RegularExpressions;
+using TechExam3.Interface;
 using TechExam3.Model;
 
 namespace TechExam3.Valicator
 {
-    public class EmployeeValidator
+    public class EmployeeValidator: IEmployeeValidator
     {
         public EmployeeValidator()
         {
@@ -15,14 +16,18 @@ namespace TechExam3.Valicator
             ValidatorResponse response = new ValidatorResponse();
             try
             {
-
                 if (string.IsNullOrEmpty(createEmployee.Name))
                 {
                     response.HasError = true;
                     response.ErrorMessage = "Name can't be null or empty!";
                     return response;
                 }
-                if (!Regex.IsMatch("^[A-Z][a-z]*(\\s[A-Z][a-z]*)+$", createEmployee.Name))
+                /* This Regex.IsMatch here is always false due to interchanged parameters
+                 * Current regEx is failing the input even though it is valid. 
+                 * Suggested regEx is ^[A-Z][a-z]+$ for matching alpha characters
+                */
+                //if (!Regex.IsMatch("^[A-Z][a-z]*(\\s[A-Z][a-z]*)+$", createEmployee.Name))
+                if (!Regex.IsMatch(createEmployee.Name, "^[A-Z][a-z]+$"))
                 {
                     response.HasError = true;
                     response.ErrorMessage = "Name contains invalid inputs.";
@@ -55,7 +60,12 @@ namespace TechExam3.Valicator
                     response.ErrorMessage = "Name can't be null or empty!";
                     return response;
                 }
-                if (!Regex.IsMatch("^[A-Z][a-z]*(\\s[A-Z][a-z]*)+$", editEmployeeRequest.Name))
+                /* This Regex.IsMatch here is always false due to interchanged parameters
+                 * Current regEx is failing the input even though it is valid. 
+                 * Suggested regEx is ^[A-Z][a-z]+$ for matching alpha characters
+                */
+                //if (!Regex.IsMatch("^[A-Z][a-z]*(\\s[A-Z][a-z]*)+$", editEmployeeRequest.Name))
+                if (!Regex.IsMatch(editEmployeeRequest.Name, "^[A-Z][a-z]+$"))
                 {
                     response.HasError = true;
                     response.ErrorMessage = "Name contains invalid inputs.";

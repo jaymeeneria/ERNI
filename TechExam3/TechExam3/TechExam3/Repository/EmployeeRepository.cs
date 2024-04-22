@@ -2,11 +2,13 @@
 using System.Linq;
 using System.Net;
 using System.Xml.Linq;
+using TechExam3.Controllers;
+using TechExam3.Interface;
 using TechExam3.Model;
 
 namespace TechExam3.Repository
 {
-    public class EmployeeRepository
+    public class EmployeeRepository: IEmployeeRepository
     {
         private readonly DatabaseContext _databaseContext;
         public EmployeeRepository(DatabaseContext databaseContext)

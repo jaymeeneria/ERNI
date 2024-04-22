@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using TechExam3.Interface;
 using TechExam3.Repository;
+using TechExam3.Valicator;
 
 namespace TechExam3
 {
@@ -16,7 +18,8 @@ namespace TechExam3
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddScoped<EmployeeRepository>();
+            builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            builder.Services.AddScoped<IEmployeeValidator, EmployeeValidator>();
             builder.Services.AddDbContext<DatabaseContext>(opt => opt.UseInMemoryDatabase("Employee")); ;
             var app = builder.Build();
 

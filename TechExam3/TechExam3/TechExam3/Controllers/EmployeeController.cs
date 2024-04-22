@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TechExam3.Interface;
 using TechExam3.Model;
 using TechExam3.Repository;
 using TechExam3.Valicator;
@@ -9,9 +10,9 @@ namespace TechExam3.Controllers
     [Route("api/")]
     public class EmployeeController : ControllerBase
     {
-        private readonly EmployeeRepository _employeeRepository;
-        private readonly EmployeeValidator _employeeValidator;
-        public EmployeeController(EmployeeRepository employeeRepository, EmployeeValidator employeeValidator)
+        private readonly IEmployeeRepository _employeeRepository;
+        private readonly IEmployeeValidator _employeeValidator;
+        public EmployeeController(IEmployeeRepository employeeRepository, IEmployeeValidator employeeValidator)
         {
             _employeeRepository = employeeRepository;
             _employeeValidator = employeeValidator;
