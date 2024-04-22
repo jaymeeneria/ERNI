@@ -16,10 +16,10 @@ namespace TechExam2.Controllers
             _iCalculatorService = iCalculatorService;
         }
         [HttpPost("RoundSumOfTwoNumber")]
-        public async IActionResult RoundSumOfTwoNumber(CalculateRequest request)
+        public async Task<ActionResult> RoundSumOfTwoNumber(CalculateRequest request)
         {
            CalculateResponse calculateResponse = new CalculateResponse();
-           int result = await _iCalculatorService.RoundingSumOf2Int(request.FirstNumber, request.SecondNumber);
+           calculateResponse.Answer = await _iCalculatorService.RoundingSumOf2Int(request.FirstNumber, request.SecondNumber);
 
            return Ok(calculateResponse);
         }

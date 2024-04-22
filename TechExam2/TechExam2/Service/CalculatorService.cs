@@ -8,11 +8,13 @@ namespace TechExam2.Service
         {
             int roundedValue = 0;
             int sum = 0;
+            int answer = 0;
 
-            int summ = firstNumber + secondNumber;
-            roundedValue = (sum % 5) == 0 ? sum : sum + 5;
+            sum = firstNumber + secondNumber;
+            roundedValue = (sum % 5) == 0 ? sum :(sum/5) * 5 + 5;
+            answer = (roundedValue - sum) < 3 ? roundedValue : sum;
 
-            return roundedValue;
+            return answer;
         }
     }
 }
