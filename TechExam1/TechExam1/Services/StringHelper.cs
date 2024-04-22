@@ -4,7 +4,7 @@
     {
         public List<string> ConvertToListString(string input)
         {
-            return input.Select(x => x.ToString().ToLower()).ToList();
+            return input.ToLower().Select(x => x.ToString()).ToList();
         }
     }
 }

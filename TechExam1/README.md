@@ -28,3 +28,11 @@ The given string "pneumonoultramicroscopicsilicovolcanoconiosis" contains 3 uniq
 
 
 # Explanation:
+Change 1: GetUnique.cs'
+	
+	The code in the CheckIfUnique method mimics sa for loop which tells us that the previous code
+	does a nested for loop which connotates a O(n^2) time complexity. 
+	
+	I used a hashset instead of calling CheckIfUnique. Due to the HashSet's nature that only stores unique 
+	values, using it inside the if would just give a n(1) complexity leaving us the whole code to one loop
+	which connotates a O(n) time complexity. 

@@ -18,10 +18,8 @@ namespace TechExam1.Controllers
         }
         // POST: api/countuniquecharacters
         [HttpPost("countuniquecharacters")]
-        [HttpPost("{request}")]
         public async Task<ActionResult> CountUniqueCharacters(UniqueCharacterRequest request)
         {
-           
             UniqueCharacterResponse uniqueCharacterResponse = new UniqueCharacterResponse();
             uniqueCharacterResponse.UniqueCharacterCount = await _iStringService.GetNumberOfUniqueCharacterFromString(request.input);
             return Ok(uniqueCharacterResponse);

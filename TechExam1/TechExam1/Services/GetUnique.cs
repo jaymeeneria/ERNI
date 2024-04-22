@@ -3,19 +3,27 @@
     public class GetUnique
     {
         public List<string> characters { get; set; } = new List<string>();
-        public List<string> GetNumberOfUniqueCharacter()
+        public HashSet<string> set = new HashSet<string>();
+
+        public int GetNumberOfUniqueCharacter()
         {
             List<string> unique = new List<string>();
+
             foreach (string character in characters)
             {
-                if (CheckIfUnique(character))
+                if (set.Add(character))
                 {
                     unique.Add(character);
                 }
+                else {
+                    unique.RemoveAll(x => x == character);
+                }
             }
-            return unique;
+
+            return unique.Count;
             
         }
+
         public bool CheckIfUnique(string character)
         {
             if(characters.Where(y => y == character).Count() == 1)
