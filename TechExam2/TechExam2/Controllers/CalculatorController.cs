@@ -15,6 +15,7 @@ namespace TechExam2.Controllers
         {
             _iCalculatorService = iCalculatorService;
         }
+
         [HttpPost("RoundSumOfTwoNumber")]
         public async Task<ActionResult> RoundSumOfTwoNumber(CalculateRequest request)
         {

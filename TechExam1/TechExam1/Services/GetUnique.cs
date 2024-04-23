@@ -21,7 +21,6 @@
             }
 
             return unique.Count;
-            
         }
 
         public bool CheckIfUnique(string character)

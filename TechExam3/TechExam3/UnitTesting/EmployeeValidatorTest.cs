@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechExam3.Controllers;
-using TechExam3.Interface;
-using TechExam3.Model;
+﻿using TechExam3.Model;
 using TechExam3.Valicator;
-using Moq;
-using System.ComponentModel.DataAnnotations;
 
 namespace UnitTesting.Validator
 {

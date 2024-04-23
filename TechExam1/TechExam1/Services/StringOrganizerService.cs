@@ -18,7 +18,5 @@ namespace TechExam1.Services
 
             return _getUnique.GetNumberOfUniqueCharacter();
         }
-
-       
     }
 }
